@@ -55,7 +55,6 @@ class NewItem extends Component {
             price: this.state.price,
             selector: this.state.selector
         }
-        console.log(JSON.stringify(body))
         request.send(JSON.stringify(body));
         this.setState({fireRedirect: true})
     }

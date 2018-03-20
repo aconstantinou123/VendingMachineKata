@@ -35,7 +35,6 @@ class VendingMachine extends Component {
         for(let i = 0; i < numberOfCoins; i++){
             coins.push(moneyToAdd);
         }
-        console.log(coins)
         this.setState({
             totalCoins: this.state.totalCoins.concat(coins).sort(function(a, b){return b-a;})
         })
@@ -82,7 +81,8 @@ class VendingMachine extends Component {
             totalCoins: this.state.totalCoins.concat(this.state.coinsInserted).sort(function(a, b){return b-a;})
         })
         for(let i = 0; i < this.state.totalCoins.length; i++){
-            if(change >= this.state.totalCoins[i]){
+            if(change.toFixed(2) >= this.state.totalCoins[i]){
+                console.log(change)
                 change -= this.state.totalCoins[i]
                 changeToReturn.push(this.state.totalCoins[i])
             }
@@ -110,13 +110,12 @@ class VendingMachine extends Component {
         xhr.send();
     }
 
+    componentWillUpdate(){
+        this.getRequest();
+    }
 
     componentDidMount() {
        this.getRequest();
-    }
-
-    componentDidUpdate(){
-        this.getRequest();
     }
 
     render(){
