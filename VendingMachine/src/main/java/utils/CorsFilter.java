@@ -5,8 +5,6 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 
-import static spark.Spark.options;
-
 public final class CorsFilter {
 
     private static final HashMap<String, String> corsHeaders = new HashMap<String, String>();

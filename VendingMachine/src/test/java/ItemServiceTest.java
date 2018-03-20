@@ -30,7 +30,8 @@ public class ItemServiceTest {
 
     @Test
     public void canUpdateItem(){
-        itemService.updateItem("1", 4 );
+        marsBar.setQuantity(4);
+        itemService.updateItem("1", marsBar );
         assertEquals(4, marsBar.getQuantity());
     }
 
